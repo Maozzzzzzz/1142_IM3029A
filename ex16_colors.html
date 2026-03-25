@@ -16,15 +16,24 @@
 
         .box {
             width: 500px;
-            padding: 10px 20px;
             font-size: 32px;
             font-weight: bold;
         }
 
         .box-1 {
-            background-color: #add8e6;
-            border: 6px double #ff7f50;
-        }
+    		background-color: #add8e6;
+    
+   	 		/* 1. 設定內圈細線 (2px) */
+    		border: 4px solid #ff7f50; 
+    
+    		/* 2. 設定外圈粗線 (6px) */
+    		outline: 3px solid #ff7f50; 
+    
+    		/* 3. 關鍵：這行讓外線跟內線中間留一點點小縫隙，更有層次感 */
+    		
+    		outline-offset: 2px; 
+    
+		}
 
         .box-2 {
             background-color: #ffff00;

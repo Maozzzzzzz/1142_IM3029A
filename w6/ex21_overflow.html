@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  /* Container for the whole layout */
+  .container {
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 600px;
+    font-family: serif;
+    overflow: auto; /* Clearfix hack to contain the floated div */
+  }
+
+  /* Style for the yellow highlighted inline-blocks */
+  .highlight {
+    display: inline-block; /* Allows width/height/padding on inline elements */
+    background-color: yellow;
+    border: 1px solid blue;
+    padding: 2px 5px;
+    margin: 2px;
+  }
+
+  /* Style for the floated div with overflow */
+  .sidebar {
+    float: right; /* Floats the element to the right of its container */
+    width: 100px;
+    height: 100px;
+    border: 3px solid #73AD21; /* Green border similar to examples */
+    padding: 10px;
+    margin-left: 15px;
+    overflow: scroll; /* Adds scrollbars only when necessary */
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="sidebar">
+    A float div with overflow auto. A float div with overflow auto. 
+    A float div with overflow auto. A float div with overflow auto.
+  </div>
+
+  <p>
+    (Just long sentence.) Let me not to the marriage of true minds Admit impediments. 
+    <span class="highlight">Love</span> is not love Which alters when it alteration finds, 
+    Or bends with the remover to remove: O, no! it is an ever-fix'ed mark, That looks on 
+    tempests and is never shaken; It is the star to every wand'ring bark, Whose worth's 
+    unknown, although his heighth be taken. <span class="highlight">Love's</span> not 
+    Time's fool, though rosy lips and cheeks Within his bending sickle's compass come; 
+    <span class="highlight">Love</span> alters not with his brief hours and weeks, 
+    But bears it out even to the edge of doom: If this be error and upon me proved, 
+    I never writ, nor no man ever loved.
+  </p>
+</div>
+
+</body>
+</html>

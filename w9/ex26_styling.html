@@ -2,78 +2,56 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <title>CSS 圖片排版練習</title>
+    <title>ex26</title>
     <style>
-        /* 為了讓三張圖片漂亮地並排，我們準備一個外盒 */
-        /* 把外盒縮窄一點，讓裡面的 33% 不會那麼寬 */
+        /* 外盒：負責讓三張圖排排站，並且對齊上方 */
         .gallery-container {
             display: flex;
             justify-content: space-between; 
-            align-items: flex-start;
+            
+            /* 💡 魔法在這裡：flex-start 會讓裡面的東西全部貼齊天花板 */
+            align-items: flex-start; 
+            
             padding: 50px;
-            max-width: 800px; /* 從 1000px 縮小到 800px */
+            max-width: 800px; /* 限制寬度，讓照片保持直立 */
             margin: 0 auto; 
         }
 
-        /* 1. 左邊的圖：把高度拉高變直立 */
+        /* 1. 左邊的圖：有圓角、不變形 */
         .img-left {
             width: 33%;
-            height: 400px; /* 高度拉高到 400px */
+            height: 350px; /* 高度拉高 */
             border-radius: 18px;
             object-fit: cover; 
         }
 
-        /* 2. 中間的圖：加上拍立得邊框 */
+        /* 2. 中間的圖：正圓形、相框邊框、不變形 */
         .img-center {
             width: 150px;
             height: 150px; 
             border-radius: 50%; 
             object-fit: cover; 
             
-            /* 新增的邊框魔法 */
-            border: 1px solid #2f2f2f; /* 深色外框 */
-            padding: 2px;              /* 製造出白色空隙 */
-            background-color: white;   /* 確保空隙是白色的 */
-        }
-
-        /* 3. 右邊的圖：把高度拉高變直立 */
-        .img-right {
-            width: 33%;
-            height: 400px; /* 高度拉高到 400px */
-            object-fit: fill; 
-        }
-
-        /* 1. 左邊的圖：有圓角、不變形 */
-        .img-left {
-            width: 33%;
-            height: 300px;
-            border-radius: 18px;
-            object-fit: cover; 
-        }
-
-        /* 2. 中間的圖：正圓形、不變形 */
-        .img-center {
-            width: 150px;
-            height: 150px; 
-            border-radius: 50%; 
-            object-fit: cover; 
+            /* 拍立得邊框效果 */
+            border: 2px solid #2f2f2f; 
+            padding: 4px;              
+            background-color: white;   
         }
 
         /* 3. 右邊的圖：預設變形 */
         .img-right {
             width: 33%;
-            height: 300px;
-            object-fit: fill; /* 關鍵：強制拉伸填滿，產生 distortion */
+            height: 350px; /* 高度拉高 */
+            object-fit: fill; 
         }
     </style>
 </head>
 <body>
 
-    <img class="img-left" src="https://picsum.photos/id/1018/800/600" alt="絕美高山-不變形">
-        
+    <div class="gallery-container">
+        <img class="img-left" src="https://picsum.photos/id/1018/800/600" alt="左圖-不變形">
         <img class="img-center" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&q=80" alt="風景-圓形">
-        
-        <img class="img-right" src="https://picsum.photos/id/1018/800/600" alt="絕美高山-變形">
+        <img class="img-right" src="https://picsum.photos/id/1018/800/600" alt="右圖-拉長變形">
     </div>
 
 </body>

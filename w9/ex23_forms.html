@@ -1,9 +1,29 @@
-input[type="button"].info-btn {
-  background-color: #ffffff;
-  border: 1px solid #2f2f2f;
-  border-radius: 8px; /* R8 */
-  color: #2f2f2f;
-  padding: 0 18px;
-  height: 22px;
-  cursor: pointer; 
-}
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>按鈕測試</title>
+    <style>
+        /* 這裡放你的 CSS 衣服 */
+        input[type="button"].info-btn {
+            background-color: #ffffff;
+            border: 1px solid #2f2f2f;
+            border-radius: 8px; /* R8 */
+            color: #2f2f2f;
+            padding: 0 18px;
+            height: 22px;
+            cursor: pointer; 
+        }
+
+        /* 加了一點 body 的邊距，讓按鈕不會死死黏在螢幕最左上角 */
+        body {
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="button" value="查看資訊" class="info-btn">
+
+</body>
+</html>

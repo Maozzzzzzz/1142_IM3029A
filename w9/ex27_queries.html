@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 27 - Responsive Layout</title>
+    <style>
+        /* 基礎設定 */
+        * {
+            box-sizing: border-box; /* 講義前面的重點：確保 padding 不會撐破外盒 */
+        }
+
+        body {
+            background-color: #4eb7f5; /* 外圍的淺藍色背景 */
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* 白色的百寶盒外框 */
+        .container {
+            background-color: white;
+            padding: 10px;
+            max-width: 800px;
+            margin: 0 auto; /* 讓整個白盒在畫面置中 */
+        }
+
+        /* 講義第15頁教的 Flexbox 排版法 */
+        .row {
+            display: flex;
+            flex-wrap: wrap; /* 空間不夠時允許往下掉 */
+        }
+
+        /* 每個區塊的外圍，用 padding 做出區塊之間的白色縫隙 */
+        .column {
+            padding: 5px; 
+        }
+
+        /* --- 裡面真正有顏色的色塊 --- */
+        .box {
+            border-radius: 4px;
+        }
+        .header-box {
+            background-color: #a4cc39; /* 綠色 */
+            height: 120px;
+        }
+        .main-box {
+            background-color: #00bcd4; /* 藍色 */
+            height: 150px;
+        }
+        .footer-box {
+            background-color: #e8ecee; /* 淺灰色 */
+            height: 80px;
+        }
+
+        /* --- 大螢幕預設排版 (圖 b) --- */
+        .col-header { flex: 100%; }    /* 綠色：1 塊佔滿 */
+        .col-main   { flex: 33.33%; }  /* 藍色：3 塊平分 */
+        .col-footer { flex: 25%; }     /* 灰色：4 塊平分 */
+
+
+        /* --- 變形魔法！當螢幕小於等於 480px 時觸發 (圖 a) --- */
+        @media screen and (max-width: 480px) {
+            
+            /* 綠色 col-header 還是 100%，所以不用特別改它 */
+
+            /* 藍色區塊變成 1 塊佔滿整行 */
+            .col-main {
+                flex: 100%;
+            }
+
+            /* 灰色區塊變成 2 塊平分一行 (2x2 網格) */
+            .col-footer {
+                flex: 50%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="row">
+            <div class="column col-header">
+                <div class="box header-box"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column col-main">
+                <div class="box main-box"></div>
+            </div>
+            <div class="column col-main">
+                <div class="box main-box"></div>
+            </div>
+            <div class="column col-main">
+                <div class="box main-box"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column col-footer">
+                <div class="box footer-box"></div>
+            </div>
+            <div class="column col-footer">
+                <div class="box footer-box"></div>
+            </div>
+            <div class="column col-footer">
+                <div class="box footer-box"></div>
+            </div>
+            <div class="column col-footer">
+                <div class="box footer-box"></div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

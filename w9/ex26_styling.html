@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 圖片排版練習</title>
+    <style>
+        /* 為了讓三張圖片漂亮地並排，我們準備一個外盒 */
+        .gallery-container {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 50px;
+            max-width: 1000px; 
+            margin: 0 auto; 
+        }
+
+        /* 1. 左邊的圖：有圓角、不變形 */
+        .img-left {
+            width: 33%;
+            height: 300px;
+            border-radius: 18px;
+            object-fit: cover; 
+        }
+
+        /* 2. 中間的圖：正圓形、不變形 */
+        .img-center {
+            width: 150px;
+            height: 150px; 
+            border-radius: 50%; 
+            object-fit: cover; 
+        }
+
+        /* 3. 右邊的圖：預設變形 */
+        .img-right {
+            width: 33%;
+            height: 300px;
+            object-fit: fill; /* 關鍵：強制拉伸填滿，產生 distortion */
+        }
+    </style>
+</head>
+<body>
+
+    <img class="img-left" src="https://picsum.photos/id/1018/800/600" alt="絕美高山-不變形">
+        
+        <img class="img-center" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&q=80" alt="風景-圓形">
+        
+        <img class="img-right" src="https://picsum.photos/id/1018/800/600" alt="絕美高山-變形">
+    </div>
+
+</body>
+</html>

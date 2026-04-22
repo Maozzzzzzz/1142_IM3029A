@@ -2,28 +2,136 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <title>查看資訊</title>
+    <title></title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <style>
-        /* 這裡放你的 CSS 衣服 */
+        * {
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #e0e0e0; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* 整個預覽畫面的外盒 */
+        .preview-container {
+            width: 496px; 
+            background-color: #ffffff;
+            border: 1px solid #ccc; 
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 頂部控制列 */
+        .top-bar {
+            height: 35px;
+            background-color: #f6f6f6;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 15px;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        /* 按鈕的樣式 */
         input[type="button"].info-btn {
             background-color: #ffffff;
             border: 1px solid #2f2f2f;
-            border-radius: 8px; /* R8 */
+            border-radius: 8px;
             color: #2f2f2f;
             padding: 0 18px;
-            height: 22px;
-            cursor: pointer; /* 老師在講義裡也有加這個喔  */
+            height: 22px; 
+            cursor: pointer;
+            outline: none;
         }
 
-        /* 加了一點 body 的邊距，讓按鈕不會死死黏在螢幕最左上角，比較方便你看 */
-        body {
-            padding: 50px;
+        /* 中間圖片區 */
+        .image-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0 26px 0; 
+        }
+
+        .image-area img {
+            width: 450px;
+            height: 240px;
+            object-fit: cover; 
+        }
+
+        /* --- 秘密抽屜的樣式 --- */
+        .info-panel {
+            border-top: 1px solid #eaeaea;
+            padding: 10px 20px 20px 20px; 
+            height: 120px; 
+            overflow-y: auto; 
+            
+            /* 關鍵在這裡！一開始先把抽屜藏起來 */
+            display: none; 
+        }
+
+        /* 當抽屜被加上 active 這個標籤時，就會顯示出來 */
+        .info-panel.active {
+            display: block;
+        }
+
+        .info-panel p {
+            font-size: 13px;
+            color: #707070;
+            margin-bottom: 6px; 
         }
     </style>
 </head>
 <body>
 
-    <input type="button" value="查看資訊" class="info-btn">
+    <div class="preview-container">
+        
+        <div class="top-bar">
+            <input type="button" value="查看資訊" class="info-btn" id="toggleBtn">
+        </div>
+
+        <div class="image-area">
+            <img src="https://images.unsplash.com/photo-1506744626753-1fa44df31c78?w=450&h=240&fit=crop" alt="風景預覽圖">
+        </div>
+
+        <div class="info-panel" id="infoPanel">
+            <p>修改日期：2017/10/12</p>
+            <p>類型：JPG</p>
+            <p>大小：466.97KB</p>
+            <p>路徑：\\designcenter.qnap.com.tw\DesignCenter\PM，RD 請進入\WEB\Stations\A_Image2PDF\v2\sample</p>
+            <p>解析度：1920 x 1080</p>
+            <p>色彩空間：RGB</p>
+        </div>
+
+    </div>
+
+    <script>
+        // 1. 先用名牌把按鈕和抽屜找出來
+        const btn = document.getElementById('toggleBtn');
+        const panel = document.getElementById('infoPanel');
+
+        // 2. 告訴按鈕：有人「點擊 (click)」你的時候，要做大括號裡面的事情
+        btn.addEventListener('click', function() {
+            
+            // 把抽屜加上或拿掉 active 標籤（這樣就會顯示或隱藏）
+            panel.classList.toggle('active');
+
+            // 檢查抽屜現在是不是打開的狀態？
+            if (panel.classList.contains('active')) {
+                btn.value = '收起資訊'; // 打開的話，按鈕文字換成收起
+            } else {
+                btn.value = '查看資訊'; // 關起來的話，按鈕文字換回查看
+            }
+            
+        });
+    </script>
 
 </body>
 </html>

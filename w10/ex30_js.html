@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Events Assignment</title>
+    <style>
+        /* Styling to match the assignment layout */
+        .box {
+            border: 1px solid #999;
+            width: 150px;
+            padding: 20px;
+            text-align: left;
+            font-family: serif;
+        }
+        
+        #dynamicText {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: black; /* Default color */
+        }
+
+        button {
+            padding: 5px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <div id="dynamicText">Hello</div>
+        <button id="actionButton">Button</button>
+    </div>
+
+    <script>
+        // 1. Select the elements we need to interact with
+        const textEl = document.getElementById('dynamicText');
+        const btnEl = document.getElementById('actionButton');
+
+        // 2. Add an event listener for "Mouse over"
+        btnEl.addEventListener('mouseover', function() {
+            textEl.style.color = 'magenta'; // Changes text color
+        });
+
+        // Optional: Revert color when mouse leaves, to match normal web behavior
+        btnEl.addEventListener('mouseout', function() {
+            // Only revert if the text hasn't been clicked yet
+            if (textEl.innerText === 'Hello') {
+                textEl.style.color = 'black'; 
+            }
+        });
+
+        // 3. Add an event listener for "Mouse click"
+        btnEl.addEventListener('click', function() {
+            textEl.innerText = 'Mouse Click'; // Changes the text content
+        });
+    </script>
+
+</body>
+</html>

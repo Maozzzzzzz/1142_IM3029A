@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation Practice</title>
+    <style>
+        /* 簡單的樣式設定，讓畫面看起來乾淨整齊 */
+        body {
+            font-family: serif;
+            margin: 20px;
+        }
+        .container {
+            margin-bottom: 10px;
+        }
+        input {
+            padding: 5px;
+            font-size: 16px;
+            width: 150px;
+        }
+        button {
+            padding: 5px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #message {
+            font-size: 20px;
+            margin-top: 15px;
+            /* 預設隱藏，等有訊息時再顯示 */
+            min-height: 24px; 
+        }
+    </style>
+</head>
+<body>
+
+    <p>Please input a number between 150 and 300:</p>
+
+    <div class="container">
+        <input type="text" id="numInput" value="">
+        <button id="submitBtn">Submit</button>
+    </div>
+
+    <div id="message"></div>
+
+    <script>
+        // 1. 選取 DOM 元素 (最佳實踐：使用 const 宣告不會重新賦值的變數)
+        const inputEl = document.getElementById('numInput');
+        const btnEl = document.getElementById('submitBtn');
+        const messageEl = document.getElementById('message');
+
+        // 2. 綁定點擊事件 (最佳實踐：使用 addEventListener 而非 HTML 內聯 onclick)
+        btnEl.addEventListener('click', function() {
+            // 取得輸入框的值，並轉換為數字型別
+            const inputValue = inputEl.value;
+            const numberValue = Number(inputValue);
+
+            // 清空先前的文字顏色設定
+            messageEl.style.color = "black";
+
+            // 3. 邏輯判斷與表單驗證
+            if (inputValue.trim() === "" || isNaN(numberValue)) {
+                // 額外防護：檢查是否輸入空白或非數字
+                messageEl.textContent = "Please enter a valid number";
+                messageEl.style.color = "red";
+            } else if (numberValue < 150) {
+                // 數值太小
+                messageEl.textContent = "Value too small";
+            } else if (numberValue > 300) {
+                // 數值太大
+                messageEl.textContent = "Value too large";
+            } else {
+                // 數值在範圍內
+                messageEl.textContent = "Input OK";
+            }
+        });
+    </script>
+
+</body>
+</html>

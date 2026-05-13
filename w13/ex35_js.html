@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Object Property Manipulation</h2>
+    <div id="output"></div>
+
+    <script>
+        var Person = {
+            firstName : "Tony",
+            lastName : "Lee",
+            age : 50,
+            eyeColor : "Blue"
+        };
+
+        let display = document.getElementById("output");
+
+        // 1. List all properties
+        let initialProps = Object.keys(Person).join(", ");
+        display.innerHTML += "<p><b>Initial Properties:</b> " + initialProps + "</p>";
+
+        // 2. Delete the age property
+        delete Person.age;
+
+        // 3. Print the object after deleting
+        display.innerHTML += "<p><b>Object after deleting 'age':</b><br>" + JSON.stringify(Person) + "</p>";
+        
+        console.log("Updated Object:", Person);
+    </script>
+</body>
+</html>

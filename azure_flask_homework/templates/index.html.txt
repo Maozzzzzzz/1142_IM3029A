@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><title>Simple Flask Form (Compute the double)</title></head>
+<body>
+    <h2>Input a number</h2>
+    <form action="/predict" method="post">
+        <input type="number" name="x" required>
+        <button type="submit">Submit</button>
+    </form>
+    {% if result is not none %}
+        <h3>Double Result: {{ result }}</h3>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head><title>Template - Page</title></head>
+<body>
+    <h1>Template - Page</h1>
+    <h2>{{ text }}</h2>
+    <p>name: {{ x.name }}</p>
+    <p>age: {{ x.age }}</p>
+    <p>city: {{ x.city }}</p>
+</body>
+</html>

@@ -1,0 +1,5 @@
+<!DOCTYPE html>
+<html>
+<head><title>Apple Page</title></head>
+<body><h1>Apple Image Page</h1></body>
+</html>

@@ -1,13 +1,13 @@
 from flask import Flask, render_template, request
 from markupsafe import escape
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-# ===== Ex 43: Flask Online & Ex 44: Hello Flask =====
-# 路由位置：/
-@app.route('/')
-def hello():
-    return "Hello, World!"
+# 修正後的 Ex 45 路由：不用 escape，直接回傳字串
+@app.route('/user/<username>')
+def show_user_profile(username):
+    return f'User {username}'
 
 # ===== Ex 45: URL Info =====
 # 路由位置：/user/<username>
